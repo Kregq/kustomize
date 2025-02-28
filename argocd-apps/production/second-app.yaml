@@ -11,7 +11,7 @@ spec:
     path: 01-working-with-kustomize/overlays/production
   destination:
     server: https://kubernetes.default.svc
-    namespace: kapp
+    namespace: second-app-production
   syncPolicy:
     automated:
       prune: true
