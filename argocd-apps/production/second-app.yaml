@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: second-app-production
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-repo/your-repo.git
+    targetRevision: main
+    path: 01-working-with-kustomize/overlays/production
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: second-app-production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
