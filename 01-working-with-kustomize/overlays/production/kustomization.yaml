@@ -4,12 +4,23 @@ kind: Kustomization
 bases:
 - ../../base
 
-namePrefix: production-
-namespace: second-app-production
-
-images:
-- name: quay.io/redhatworkshops/welcome-php
-  newTag: v1.0.0
-
-commonLabels:
-  app.kubernetes.io/environment: production
+patchesJson6902:
+  - target:
+      version: v1
+      kind: Deployment
+      name: welcome-php
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 6
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: quay.io/redhatworkshops/welcome-php
+  - target:
+      version: v1
+      kind: Namespace
+      name: kapp
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: second-app-production
