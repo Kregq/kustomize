@@ -15,4 +15,5 @@ patchesJson6902:
         value: 6
       - op: replace
         path: /spec/template/spec/containers/0/image
-        value: quay.io/redhatworkshops/welcome-php
+        value: quay.io/redhatworkshops/welcome-php:ffcd15
+        
