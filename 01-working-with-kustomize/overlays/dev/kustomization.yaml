@@ -9,7 +9,6 @@ namespace: second-app-dev
 
 images:
 - name: quay.io/redhatworkshops/welcome-php
-  newTag: latest
 
 commonLabels:
   app.kubernetes.io/environment: dev

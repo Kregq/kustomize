@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-repo/your-repo.git
+    repoURL: https://github.com/Kregq/kustomize.git
     targetRevision: main
     path: 01-working-with-kustomize/overlays/dev
   destination:
